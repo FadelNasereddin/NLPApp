@@ -1,5 +1,10 @@
 import streamlit as st 
+import spacy 
+from textblob import TextBlob
 import time 
+
+
+
 
 def main():
     # Headers
@@ -23,7 +28,7 @@ def main():
         message = st.text_area("Enter your desired text:","Type here...")
         submitButton = st.button("Submit")
         if submitButton:
-            st.sucess("You have submitted your text")
+            st.success("You have submitted your text")
 
 
 
