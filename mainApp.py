@@ -3,7 +3,11 @@ import spacy
 from textblob import TextBlob
 import time 
 
-
+def textAnalyzer(myText):
+    nlp = spacy.load('en_core_web_sm')
+    doc = nlp(myText)
+    allData = [('Token:{},\n lemma:{}'.format(token.text,token.lemma_)) for token in doc]
+    return allData
 
 
 def main():
@@ -28,7 +32,9 @@ def main():
         message = st.text_area("Enter your desired text:","Type here...")
         submitButton = st.button("Submit")
         if submitButton:
-            st.success("You have submitted your text")
+            result = textAnalyzer(message)
+            st.json(result)
+            
 
 
 
