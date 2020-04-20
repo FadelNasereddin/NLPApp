@@ -1,0 +1,1 @@
+NLP Stop was a personal side project I decided to develop in order to further explore my interest of the world of natural language processing.

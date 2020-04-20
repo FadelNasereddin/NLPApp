@@ -7,12 +7,16 @@ from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
 
+## Readeable Files 
+f= open('About.txt','r')
+yo = f.read()
+
 ## Summary Function
 def summaryAnalyzer(doc):
     parser = PlaintextParser.from_string(doc,Tokenizer("english"))
     lex_summarizer = LexRankSummarizer()
     summary = lex_summarizer(parser.document,3)
-    summary_list - [str(sentence) for sentence in summary]
+    summary_list = [str(sentence) for sentence in summary]
     result = ' '.join(summary_list)
     return result 
 
@@ -33,13 +37,14 @@ def entityAnalyzer(myText):
 # Main Method
 def main():
     # Headers
-    st.title("Fadel's NLP Application")
+    st.title("NLP Stop - A Natural Language WebApp")
+    st.subheader(yo)
     st.subheader("Serving all your NLP needs here!")
 
 
     # Sidebar
-    st.sidebar.header('About this site')
-    st.write('TODO')
+    st.sidebar.header('Developed By:')
+    st.sidebar.text('Fadel Nasereddin\n4A Management Engineering')
     st.sidebar.header('How to Use this site')
     st.sidebar.info("TODO")
 
@@ -77,21 +82,30 @@ def main():
 
         # Text Summarization 
         if st.checkbox("Summarize a long paragraph"):
-            summarizerList=['genism','sumy']
+            summarizerList=['gensim','sumy']
             summarizerSelect = st.selectbox("Select Summarizer:",summarizerList)
             st.subheader("Sumarize your text:")
             summaryMessage = st.text_area("Place long essay/pargraph here","Type here...")
             if st.button("Summarize"):
-                if summarizerSelect =='genism':
+                if summarizerSelect =='gensim':
                     summaryResult= summarize(summaryMessage)
                     with st.spinner("Summarizing your text..."):
-                        time.sleep(5)
+                        time.sleep(3)
                     st.success("Finished!")
 
 
                 elif summarizerSelect =="sumy":
-                    print('yo')
-                st.success(summaryResult)
+                    summaryResult= summaryAnalyzer(summaryMessage)
+                    with st.spinner("Summarizing your text..."):
+                        time.sleep(3)
+                    st.success("Finished!")
+                
+
+                else:
+                    st.warning("Invalid selection. Using Default Summarizer (gensim)")
+                    summaryResult= summarize(summaryMessage)
+
+                st.info(summaryResult)
                 
 
 
