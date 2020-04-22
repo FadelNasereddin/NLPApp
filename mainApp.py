@@ -48,65 +48,65 @@ def main():
     st.sidebar.header('How to Use this site')
     st.sidebar.info("TODO")
 
-    if st.checkbox('yoooooo'):
-        # Tokenization
-        showTokens = st.checkbox("Show Tokens & Lemma")
-        if showTokens:
-            st.subheader("Tokenize your text")
-            st.info("Tokenization is the task of chopping up a sequence of text into pieces called tokens")
-            tokenMessage = st.text_area("Place the text you would like to tokenize here","Type here...")
-            submitButton = st.button("Submit")
-            if submitButton:
-                tokenResult = textAnalyzer(tokenMessage)
-                st.json(tokenResult)
-                
-        # Named Entity
-        entity = st.checkbox("Show general word definitions")
-        if entity:
-            st.subheader("Extract Entities")
-            entityMessage = st.text_area("Enter Text","Type here...")
-            extractButton = st.button("Extract")
-            if extractButton:
-                entityResult = entityAnalyzer(entityMessage)
-                st.json(entityResult) 
+    # if st.checkbox('yoooooo'):
+    # Tokenization
+    showTokens = st.checkbox("Show Tokens & Lemma")
+    if showTokens:
+        st.subheader("Tokenize your text")
+        st.info("Tokenization is the task of chopping up a sequence of text into pieces called tokens")
+        tokenMessage = st.text_area("Place the text you would like to tokenize here","Type here...")
+        submitButton = st.button("Submit")
+        if submitButton:
+            tokenResult = textAnalyzer(tokenMessage)
+            st.json(tokenResult)
+            
+    # Named Entity
+    entity = st.checkbox("Show general word definitions")
+    if entity:
+        st.subheader("Extract Entities")
+        entityMessage = st.text_area("Enter Text","Type here...")
+        extractButton = st.button("Extract")
+        if extractButton:
+            entityResult = entityAnalyzer(entityMessage)
+            st.json(entityResult) 
 
-        # Sentiment Analysis
-        sentiment = st.checkbox("Show The Sentiment of Your Text!")
-        if sentiment:
-            st.subheader("Sentiment Analysis:")
-            sentimentMessage = st.text_area("Analyze the sentiment of your text here","Type here...")
-            if st.button("Analyze Sentiment"):
-                blob = TextBlob(sentimentMessage)
-                sentimentResult = blob.sentiment
-                st.success(sentimentResult)
+    # Sentiment Analysis
+    sentiment = st.checkbox("Show The Sentiment of Your Text!")
+    if sentiment:
+        st.subheader("Sentiment Analysis:")
+        sentimentMessage = st.text_area("Analyze the sentiment of your text here","Type here...")
+        if st.button("Analyze Sentiment"):
+            blob = TextBlob(sentimentMessage)
+            sentimentResult = blob.sentiment
+            st.success(sentimentResult)
 
-        # Text Summarization 
-        if st.checkbox("Summarize a long paragraph"):
-            summarizerList=['gensim','sumy']
-            summarizerSelect = st.selectbox("Select Summarizer:",summarizerList)
-            st.subheader("Sumarize your text:")
-            summaryMessage = st.text_area("Place long essay/pargraph here","Type here...")
-            if st.button("Summarize"):
-                if summarizerSelect =='gensim':
-                    summaryResult= summarize(summaryMessage)
-                    with st.spinner("Summarizing your text..."):
-                        time.sleep(3)
-                    st.success("Finished!")
+    # Text Summarization 
+    if st.checkbox("Summarize a long paragraph"):
+        summarizerList=['gensim','sumy']
+        summarizerSelect = st.selectbox("Select Summarizer:",summarizerList)
+        st.subheader("Sumarize your text:")
+        summaryMessage = st.text_area("Place long essay/pargraph here","Type here...")
+        if st.button("Summarize"):
+            if summarizerSelect =='gensim':
+                summaryResult= summarize(summaryMessage)
+                with st.spinner("Summarizing your text..."):
+                    time.sleep(3)
+                st.success("Finished!")
 
 
-                elif summarizerSelect =="sumy":
-                    summaryResult= summaryAnalyzer(summaryMessage)
-                    with st.spinner("Summarizing your text..."):
-                        time.sleep(3)
-                    st.success("Finished!")
-                
+            elif summarizerSelect =="sumy":
+                summaryResult= summaryAnalyzer(summaryMessage)
+                with st.spinner("Summarizing your text..."):
+                    time.sleep(3)
+                st.success("Finished!")
+            
 
-                else:
-                    st.warning("Invalid selection. Using Default Summarizer (gensim)")
-                    summaryResult= summarize(summaryMessage)
+            else:
+                st.warning("Invalid selection. Using Default Summarizer (gensim)")
+                summaryResult= summarize(summaryMessage)
 
-                st.info(summaryResult)
-                
+            st.info(summaryResult)
+            
 
 
 if __name__ == '__main__':
