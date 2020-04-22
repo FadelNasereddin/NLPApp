@@ -55,6 +55,14 @@ def entityAnalyzer(myText):
 
 # Main Method
 def main():
+    # Hiding Watermarks
+    hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
     
     # Headers
     st.markdown("# NLP Stop: A Natural Language App :rocket:")
