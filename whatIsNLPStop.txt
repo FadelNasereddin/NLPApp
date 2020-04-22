@@ -1,0 +1,10 @@
+NLP Stop is a simple Web application that allows users to perform the fundamental tasks associated with NLP. using my website, you can provide any user input you'd like and would be able to:
+
+- **Tokenize words & see their lemma**
+
+- **Extract word definitions**
+
+- **Perform a sentiment & subjectivity analysis**
+
+- **Summarize your input into a few concise sentences!**
+
