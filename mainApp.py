@@ -21,7 +21,7 @@ mainImg = Image.open('mainPhoto.jpg')
 ## Readeable Files 
 aboutFileMain = open('About.txt','r')
 whatFileSide = open('whatIsNLPStop.txt','r')
-howFileSide = open('howToUse.txt','r')
+howFileSide = open('HowToUse.txt','r')
 
 aboutFileMain_read = aboutFileMain.read()
 whatFileSide_read = whatFileSide.read()
