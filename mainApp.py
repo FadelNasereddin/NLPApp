@@ -15,7 +15,6 @@ linkedin = 'https://www.linkedin.com/in/fadelnasereddin/'
 
 ## Images 
 fadelImg = Image.open("FadelNewNew.jpg")
-backgroundImg = Image.open("background.jpg")
 mainImg = Image.open('mainPhoto.jpg')
 
 
@@ -81,7 +80,7 @@ def main():
     st.sidebar.title('Developed By 👨‍💻 ')
     st.sidebar.text('Fadel Nasereddin\n4A Management Engineering\nUniversity of Waterloo ')
     st.sidebar.image(fadelImg,width=200)
-    st.sidebar.title("What Is NLP Stop?")
+    st.sidebar.title("What is NLP Stop?")
     st.sidebar.markdown(whatFileSide_read)
     st.sidebar.markdown('# Follow Me :iphone:')
     if st.sidebar.button('LinkedIn'):
