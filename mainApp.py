@@ -84,9 +84,9 @@ def main():
     st.sidebar.markdown(whatFileSide_read)
     st.sidebar.markdown('# Follow Me :iphone:')
     if st.sidebar.button('LinkedIn'):
-        webbrowser.open_new_tab(linkedin)
+        webbrowser.get('chrome').open_new_tab(linkedin)
     if st.sidebar.button('Github'):
-        webbrowser.open_new_tab(github)
+        webbrowser.get('chrome').open_new_tab(github)
 
     # if st.checkbox('yoooooo'):
     # Tokenization
