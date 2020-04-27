@@ -4,6 +4,7 @@ import webbrowser
 import spacy 
 from textblob import TextBlob
 import time 
+import nltk;nltk.download('punkt')
 from gensim.summarization import summarize
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
