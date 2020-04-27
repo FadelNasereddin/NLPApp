@@ -8,6 +8,7 @@ from gensim.summarization import summarize
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
+from bokeh.models.widgets import Div
 
 ## Links 
 github = 'https://github.com/FadelNasereddin'
@@ -84,9 +85,16 @@ def main():
     st.sidebar.markdown(whatFileSide_read)
     st.sidebar.markdown('# Follow Me :iphone:')
     if st.sidebar.button('LinkedIn'):
-        webbrowser.get('chrome').open_new_tab(linkedin)
+        js = "window.open('https://www.linkedin.com/in/fadelnasereddin/')"
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
+    
     if st.sidebar.button('Github'):
-        webbrowser.get('chrome').open_new_tab(github)
+        js = "window.open('https://github.com/FadelNasereddin')"
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
 
     # if st.checkbox('yoooooo'):
     # Tokenization
