@@ -6,7 +6,7 @@ NLP Stop is a Natural Language Processing web application which allows a user to
 - Perform a sentiment & subjectivity analysis
 - Summarize your input into a few concise sentences!
 
-Link: https://nlpstop.herokuapp.com/
+
 
 Enjoy :) 
 
